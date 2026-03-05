@@ -6,16 +6,18 @@ const authRoutes = require('./src/routes/auth');
 const lessonRoutes = require('./src/routes/lessons');
 const progressRoutes = require('./src/routes/progress');
 const syncRoutes = require('./src/routes/sync');
-app.use('/api/classes', require('./src/routes/classes'));
-app.use('/api/subjects', require('./src/routes/subjects'));
+const classesRoutes = require('./src/routes/classes');   // make sure the path is correct
+const subjectsRoutes = require('./src/routes/subjects');
 
+// Create the app instance
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+// Use middleware
 app.use(cors());
 app.use(express.json());
 
-// Routes
+// Use routes 
 app.use('/api/auth', authRoutes);
 app.use('/api/lessons', lessonRoutes);
 app.use('/api/progress', progressRoutes);
