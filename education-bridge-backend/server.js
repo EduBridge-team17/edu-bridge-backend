@@ -18,6 +18,8 @@ app.use('/api/auth', authRoutes);
 app.use('/api/lessons', lessonRoutes);
 app.use('/api/progress', progressRoutes);
 app.use('/api/sync', syncRoutes);
+app.use('/api/classes', require('./routes/classes'));
+app.use('/api/subjects', require('./routes/subjects'));
 
 app.get('/', (req, res) => {
   res.send('Education Bridge API');
