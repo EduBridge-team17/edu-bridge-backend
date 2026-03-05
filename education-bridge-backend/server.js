@@ -6,6 +6,8 @@ const authRoutes = require('./src/routes/auth');
 const lessonRoutes = require('./src/routes/lessons');
 const progressRoutes = require('./src/routes/progress');
 const syncRoutes = require('./src/routes/sync');
+app.use('/api/classes', require('./src/routes/classes'));
+app.use('/api/subjects', require('./src/routes/subjects'));
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -18,8 +20,8 @@ app.use('/api/auth', authRoutes);
 app.use('/api/lessons', lessonRoutes);
 app.use('/api/progress', progressRoutes);
 app.use('/api/sync', syncRoutes);
-app.use('/api/classes', require('./routes/classes'));
-app.use('/api/subjects', require('./routes/subjects'));
+app.use('/api/classes', classesRoutes);
+app.use('/api/subjects', subjectsRoutes);
 
 app.get('/', (req, res) => {
   res.send('Education Bridge API');
