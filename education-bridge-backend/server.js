@@ -6,8 +6,11 @@ const authRoutes = require('./src/routes/auth');
 const lessonRoutes = require('./src/routes/lessons');
 const progressRoutes = require('./src/routes/progress');
 const syncRoutes = require('./src/routes/sync');
-const classesRoutes = require('./src/routes/classes');   // make sure the path is correct
+const classesRoutes = require('./src/routes/classes');
 const subjectsRoutes = require('./src/routes/subjects');
+const levelsRoutes = require('./src/routes/levels');
+const usersRoutes = require('./src/routes/users');
+const schoolsRoutes = require('./src/routes/schools');
 
 // Create the app instance
 const app = express();
@@ -24,6 +27,9 @@ app.use('/api/progress', progressRoutes);
 app.use('/api/sync', syncRoutes);
 app.use('/api/classes', classesRoutes);
 app.use('/api/subjects', subjectsRoutes);
+app.use('/api/levels', levelsRoutes);
+app.use('/api/users', usersRoutes);
+app.use('/api/schools', schoolsRoutes);
 
 app.get('/', (req, res) => {
   res.send('Education Bridge API');
